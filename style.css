@@ -1,0 +1,203 @@
+:root {
+  --bg-color: #0f172a; /* Slate 900 */
+  --card-bg: rgba(30, 41, 59, 0.7); /* Slate 800 */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #6366f1; /* Indigo 500 */
+  --accent-hover: #4f46e5;
+  --accent-text: #ffffff;
+  --error: #ef4444;
+  --radius: 24px;
+  --font: 'Outfit', sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+      radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.15), transparent 25%);
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 3rem;
+  border-radius: var(--radius);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+}
+
+header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  font-size: 2.25rem;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #a855f7, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.input-grid {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.input-group {
+  position: relative;
+  flex: 1;
+}
+
+input {
+  width: 100%;
+  padding: 1rem 0.5rem 0.5rem;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  font-size: 1.1rem;
+  font-family: var(--font);
+  text-align: center;
+  color: var(--text-main);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Remover os botõezinhos do input tipo number */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
+  top: -0.5rem;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+button {
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  color: var(--accent-text);
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.resultado-box {
+  margin-top: 2.5rem;
+  font-size: 1.05rem;
+}
+
+.resultado-box p {
+  margin: 0.75rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: slideUp 0.4s forwards;
+}
+
+.resultado-box p:nth-child(2) { animation-delay: 0.1s; }
+.resultado-box p:nth-child(3) { animation-delay: 0.2s; }
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resultado-box strong {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.resultado-box span {
+  font-weight: 600;
+  color: var(--text-main);
+  background: rgba(99, 102, 241, 0.15);
+  padding: 0.2rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.erro {
+  color: var(--error) !important;
+  font-weight: 500;
+  justify-content: center !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  border: 1px solid rgba(239, 68, 68, 0.2) !important;
+  border-radius: 12px;
+}

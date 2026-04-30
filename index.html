@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhaskara Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>Bhaskara</h1>
+      <p>Calcule as raízes da equação</p>
+    </header>
+    
+    <div class="input-grid">
+      <div class="input-group">
+        <input type="number" id="valor-a" placeholder=" " required>
+        <label for="valor-a">Valor A</label>
+      </div>
+      <div class="input-group">
+        <input type="number" id="valor-b" placeholder=" " required>
+        <label for="valor-b">Valor B</label>
+      </div>
+      <div class="input-group">
+        <input type="number" id="valor-c" placeholder=" " required>
+        <label for="valor-c">Valor C</label>
+      </div>
+    </div>
+
+    <button id="botao-calcular">Calcular raízes</button>
+
+    <div id="resultado" class="resultado-box"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
